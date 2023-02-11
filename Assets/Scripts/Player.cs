@@ -5,17 +5,20 @@ public class Player : MonoBehaviour
     public float moveSpeed;
     public float jumpSpeed;
     public LayerMask layerMask;
+    public GameObject keyCodeJLeft;
+    public GameObject keyCodeJRight;
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
-    public CircleCollider2D keyCodeJLeftCollider2D;
-    public CircleCollider2D keyCodeJRightCollider2D;
+    private GameObject _anotherPlayer;
     private SpriteRenderer _spriteRenderer;
+    private State _state;
+    private Direction _direction;
     private float _dirX;
     private float _dirY;
     private bool _isGrounded;
-    private State _state;
     private bool _player1;
     private bool _hurt;
+    private bool _keyCodeJ;
 
     private enum State
     {
@@ -38,26 +41,44 @@ public class Player : MonoBehaviour
         KeyCodeI
     }
 
+    public enum Direction
+    {
+        Left,
+        Right
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        _state = State.Hurt;
-        _hurt = true;
+        if (other.gameObject.CompareTag("AttackCollider"))
+        {
+            if (_anotherPlayer.transform.position.x > transform.position.x)
+            {
+                _spriteRenderer.flipX = false;
+            }
+            else
+            {
+                _spriteRenderer.flipX = true;
+            }
+            _state = State.Hurt;
+            _hurt = true;
+        }
     }
 
     private void Start()
     {
-        keyCodeJLeftCollider2D.enabled = false;
-        keyCodeJRightCollider2D.enabled = false;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _player1 = gameObject.CompareTag("Player");
+        _anotherPlayer = _player1 ? GameObject.FindGameObjectWithTag("Player2") : GameObject.FindGameObjectWithTag("Player");
+        _direction = Direction.Right;
     }
 
     private void Update()
     {
         Movement();
         AnimationUpdate();
+        Attack();
     }
 
     private void IsGrounded()
@@ -75,6 +96,12 @@ public class Player : MonoBehaviour
             _dirY = jumpSpeed;
         }
 
+        if (_hurt)
+        {
+            _dirX = 0;
+            _dirY = 0;
+        }
+
         _rigidbody2D.velocity = new Vector2(_dirX, _dirY);
     }
 
@@ -86,11 +113,13 @@ public class Player : MonoBehaviour
             if (_dirX > 0)
             {
                 _state = State.Walk;
+                _direction = Direction.Right;
                 _spriteRenderer.flipX = false;
             }
             else if (_dirX < 0)
             {
                 _state = State.Walk;
+                _direction = Direction.Left;
                 _spriteRenderer.flipX = true;
             }
 
@@ -123,22 +152,36 @@ public class Player : MonoBehaviour
         _animator.SetInteger("state", (int)_state);
     }
 
-    private void KeyCodeJStartAttack()
+    private void Attack()
     {
-        if (_dirX > 0)
+        if (_keyCodeJ)
         {
-            keyCodeJRightCollider2D.enabled = true;
-        }
-        else if (_dirX < 0)
-        {
-            keyCodeJRightCollider2D.enabled = true;
+            if (_direction == Direction.Left)
+            {
+                keyCodeJLeft.SetActive(true);
+                keyCodeJRight.SetActive(false);
+            }
+            else
+            {
+                keyCodeJLeft.SetActive(false);
+                keyCodeJRight.SetActive(true);
+            }
         }
     }
 
-    private void KetCodeJEndAttack()
+    private void StartAttack(DamageType damageType)
     {
-        keyCodeJLeftCollider2D.enabled = false;
-        keyCodeJRightCollider2D.enabled = false;
+        if (damageType == DamageType.KeyCodeJ)
+        {
+            _keyCodeJ = true;
+        }
+    }
+
+    private void StopAttack()
+    {
+        _keyCodeJ = false;
+        keyCodeJLeft.SetActive(false);
+        keyCodeJRight.SetActive(false);
     }
 
     private void EndHurt()

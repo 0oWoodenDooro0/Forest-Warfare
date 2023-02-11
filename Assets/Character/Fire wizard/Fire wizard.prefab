@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 7785269865125798599}
   m_Layer: 0
   m_Name: Light Attack Right
-  m_TagString: Untagged
+  m_TagString: AttackCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5230894277489081989
 Transform:
   m_ObjectHideFlags: 0
@@ -222,8 +222,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8
-  keyCodeJLeftCollider2D: {fileID: 7410326109941995107}
-  keyCodeJRightCollider2D: {fileID: 7785269865125798599}
+  keyCodeJLeft: {fileID: 5446879127329345467}
+  keyCodeJRight: {fileID: 373577360499498010}
 --- !u!1 &5446879127329345467
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,11 +236,11 @@ GameObject:
   - component: {fileID: 7410326109941995107}
   m_Layer: 0
   m_Name: Light Attack Left
-  m_TagString: Untagged
+  m_TagString: AttackCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1160917683931072510
 Transform:
   m_ObjectHideFlags: 0

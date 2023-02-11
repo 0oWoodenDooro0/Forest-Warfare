@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Player2
+  - AttackCollider
   layers:
   - Default
   - TransparentFX
