@@ -16,7 +16,7 @@ public class Game : MonoBehaviour
     private void Start()
     {
         IsGameOver = false;
-        _time = 90;
+        _time = 121;
         _maxBlood = 100;
         Player1Blood = _maxBlood;
         Player2Blood = _maxBlood;

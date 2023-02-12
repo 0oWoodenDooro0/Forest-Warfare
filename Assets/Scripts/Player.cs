@@ -4,6 +4,7 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed;
     public float jumpSpeed;
+    public float knockBack;
     public LayerMask layerMask;
     public GameObject keyCodeJLeft;
     public GameObject keyCodeJRight;
@@ -24,10 +25,7 @@ public class Player : MonoBehaviour
     private bool _isGrounded;
     private bool _player1;
     private bool _hurt;
-    private bool _keyCodeJ;
-    private bool _keyCodeK;
-    private bool _keyCodeL;
-    private bool _keyCodeI;
+    private bool _attack;
 
     private enum State
     {
@@ -68,7 +66,6 @@ public class Player : MonoBehaviour
             {
                 _spriteRenderer.flipX = true;
             }
-
             _state = State.Hurt;
             _hurt = true;
         }
@@ -131,7 +128,7 @@ public class Player : MonoBehaviour
             {
                 _state = State.Walk;
                 _direction = Direction.Right;
-                if (!(_keyCodeJ || _keyCodeK || _keyCodeL || _keyCodeI))
+                if (!_attack)
                 {
                     _spriteRenderer.flipX = false;
                 }
@@ -141,7 +138,7 @@ public class Player : MonoBehaviour
             {
                 _state = State.Walk;
                 _direction = Direction.Left;
-                if (!(_keyCodeJ || _keyCodeK || _keyCodeL || _keyCodeI))
+                if (!_attack)
                 {
                     _spriteRenderer.flipX = true;
                 }
@@ -176,52 +173,6 @@ public class Player : MonoBehaviour
         _animator.SetInteger("state", (int)_state);
     }
 
-    // private void Attack()
-    // {
-    //     if (_keyCodeJ)
-    //     {
-    //         DamageCollider(DamageType.KeyCodeJ);
-    //     }
-    //
-    //     if (_keyCodeK)
-    //     {
-    //         DamageCollider(DamageType.KeyCodeK);
-    //     }
-    //
-    //     if (_keyCodeL)
-    //     {
-    //         DamageCollider(DamageType.KeyCodeL);
-    //     }
-    //
-    //     if (_keyCodeI)
-    //     {
-    //         DamageCollider(DamageType.KeyCodeI);
-    //     }
-    // }
-
-    // private void DamageCollider(DamageType damageType)
-    // {
-    //     switch (damageType)
-    //     {
-    //         case DamageType.KeyCodeJ:
-    //             OpenCollider(keyCodeJLeft, keyCodeJRight, _direction);
-    //             CloseCollider(keyCodeJLeft, keyCodeJRight, _direction == Direction.Left ? Direction.Right : Direction.Left);
-    //             break;
-    //         case DamageType.KeyCodeK:
-    //             OpenCollider(keyCodeKLeft, keyCodeKRight, _direction);
-    //             CloseCollider(keyCodeKLeft, keyCodeKRight, _direction == Direction.Left ? Direction.Right : Direction.Left);
-    //             break;
-    //         case DamageType.KeyCodeL:
-    //             OpenCollider(keyCodeLLeft, keyCodeLRight, _direction);
-    //             CloseCollider(keyCodeLLeft, keyCodeLRight, _direction == Direction.Left ? Direction.Right : Direction.Left);
-    //             break;
-    //         case DamageType.KeyCodeI:
-    //             OpenCollider(keyCodeILeft, keyCodeIRight, _direction);
-    //             CloseCollider(keyCodeILeft, keyCodeIRight, _direction == Direction.Left ? Direction.Right : Direction.Left);
-    //             break;
-    //     }
-    // }
-
     private void OpenCollider(GameObject damageLeftCollider, GameObject damageRightCollider, Direction direction)
     {
         if (direction == Direction.Left)
@@ -255,19 +206,19 @@ public class Player : MonoBehaviour
         switch (damageType)
         {
             case DamageType.KeyCodeJ:
-                _keyCodeJ = true;
+                _attack = true;
                 OpenCollider(keyCodeJLeft, keyCodeJRight, _direction);
                 break;
             case DamageType.KeyCodeK:
-                _keyCodeK = true;
+                _attack = true;
                 OpenCollider(keyCodeKLeft, keyCodeKRight, _direction);
                 break;
             case DamageType.KeyCodeL:
-                _keyCodeL = true;
+                _attack = true;
                 OpenCollider(keyCodeLLeft, keyCodeLRight, _direction);
                 break;
             case DamageType.KeyCodeI:
-                _keyCodeI = true;
+                _attack = true;
                 OpenCollider(keyCodeILeft, keyCodeIRight, _direction);
                 break;
         }
@@ -275,10 +226,7 @@ public class Player : MonoBehaviour
 
     private void StopAttack()
     {
-        _keyCodeJ = false;
-        _keyCodeK = false;
-        _keyCodeL = false;
-        _keyCodeI = false;
+        _attack = false;
         CloseCollider(keyCodeJLeft, keyCodeJRight, Direction.Left);
         CloseCollider(keyCodeJLeft, keyCodeJRight, Direction.Right);
         CloseCollider(keyCodeKLeft, keyCodeKRight, Direction.Left);
