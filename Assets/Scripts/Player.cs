@@ -7,6 +7,12 @@ public class Player : MonoBehaviour
     public LayerMask layerMask;
     public GameObject keyCodeJLeft;
     public GameObject keyCodeJRight;
+    public GameObject keyCodeKLeft;
+    public GameObject keyCodeKRight;
+    public GameObject keyCodeLLeft;
+    public GameObject keyCodeLRight;
+    public GameObject keyCodeILeft;
+    public GameObject keyCodeIRight;
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
     private GameObject _anotherPlayer;
@@ -19,6 +25,9 @@ public class Player : MonoBehaviour
     private bool _player1;
     private bool _hurt;
     private bool _keyCodeJ;
+    private bool _keyCodeK;
+    private bool _keyCodeL;
+    private bool _keyCodeI;
 
     private enum State
     {
@@ -59,6 +68,7 @@ public class Player : MonoBehaviour
             {
                 _spriteRenderer.flipX = true;
             }
+
             _state = State.Hurt;
             _hurt = true;
         }
@@ -76,9 +86,16 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        Movement();
-        AnimationUpdate();
-        Attack();
+        if (!Game.IsGameOver)
+        {
+            Movement();
+            AnimationUpdate();
+            IsGameOver();
+        }
+        else
+        {
+            _animator.SetInteger("state", (int)State.Idle);
+        }
     }
 
     private void IsGrounded()
@@ -114,13 +131,20 @@ public class Player : MonoBehaviour
             {
                 _state = State.Walk;
                 _direction = Direction.Right;
-                _spriteRenderer.flipX = false;
+                if (!(_keyCodeJ || _keyCodeK || _keyCodeL || _keyCodeI))
+                {
+                    _spriteRenderer.flipX = false;
+                }
+
             }
             else if (_dirX < 0)
             {
                 _state = State.Walk;
                 _direction = Direction.Left;
-                _spriteRenderer.flipX = true;
+                if (!(_keyCodeJ || _keyCodeK || _keyCodeL || _keyCodeI))
+                {
+                    _spriteRenderer.flipX = true;
+                }
             }
 
             if (!_isGrounded)
@@ -152,40 +176,130 @@ public class Player : MonoBehaviour
         _animator.SetInteger("state", (int)_state);
     }
 
-    private void Attack()
+    // private void Attack()
+    // {
+    //     if (_keyCodeJ)
+    //     {
+    //         DamageCollider(DamageType.KeyCodeJ);
+    //     }
+    //
+    //     if (_keyCodeK)
+    //     {
+    //         DamageCollider(DamageType.KeyCodeK);
+    //     }
+    //
+    //     if (_keyCodeL)
+    //     {
+    //         DamageCollider(DamageType.KeyCodeL);
+    //     }
+    //
+    //     if (_keyCodeI)
+    //     {
+    //         DamageCollider(DamageType.KeyCodeI);
+    //     }
+    // }
+
+    // private void DamageCollider(DamageType damageType)
+    // {
+    //     switch (damageType)
+    //     {
+    //         case DamageType.KeyCodeJ:
+    //             OpenCollider(keyCodeJLeft, keyCodeJRight, _direction);
+    //             CloseCollider(keyCodeJLeft, keyCodeJRight, _direction == Direction.Left ? Direction.Right : Direction.Left);
+    //             break;
+    //         case DamageType.KeyCodeK:
+    //             OpenCollider(keyCodeKLeft, keyCodeKRight, _direction);
+    //             CloseCollider(keyCodeKLeft, keyCodeKRight, _direction == Direction.Left ? Direction.Right : Direction.Left);
+    //             break;
+    //         case DamageType.KeyCodeL:
+    //             OpenCollider(keyCodeLLeft, keyCodeLRight, _direction);
+    //             CloseCollider(keyCodeLLeft, keyCodeLRight, _direction == Direction.Left ? Direction.Right : Direction.Left);
+    //             break;
+    //         case DamageType.KeyCodeI:
+    //             OpenCollider(keyCodeILeft, keyCodeIRight, _direction);
+    //             CloseCollider(keyCodeILeft, keyCodeIRight, _direction == Direction.Left ? Direction.Right : Direction.Left);
+    //             break;
+    //     }
+    // }
+
+    private void OpenCollider(GameObject damageLeftCollider, GameObject damageRightCollider, Direction direction)
     {
-        if (_keyCodeJ)
+        if (direction == Direction.Left)
         {
-            if (_direction == Direction.Left)
-            {
-                keyCodeJLeft.SetActive(true);
-                keyCodeJRight.SetActive(false);
-            }
-            else
-            {
-                keyCodeJLeft.SetActive(false);
-                keyCodeJRight.SetActive(true);
-            }
+            damageLeftCollider.transform.position = transform.position;
+            damageLeftCollider.SetActive(true);
+        }
+        else
+        {
+            damageRightCollider.transform.position = transform.position;
+            damageRightCollider.SetActive(true);
+        }
+    }
+
+    private void CloseCollider(GameObject damageLeftCollider, GameObject damageRightCollider, Direction direction)
+    {
+        if (direction == Direction.Left)
+        {
+            damageLeftCollider.SetActive(false);
+            damageLeftCollider.transform.position = new Vector3(100, 100, 0);
+        }
+        else
+        {
+            damageRightCollider.SetActive(false);
+            damageRightCollider.transform.position = new Vector3(100, 100, 0);
         }
     }
 
     private void StartAttack(DamageType damageType)
     {
-        if (damageType == DamageType.KeyCodeJ)
+        switch (damageType)
         {
-            _keyCodeJ = true;
+            case DamageType.KeyCodeJ:
+                _keyCodeJ = true;
+                OpenCollider(keyCodeJLeft, keyCodeJRight, _direction);
+                break;
+            case DamageType.KeyCodeK:
+                _keyCodeK = true;
+                OpenCollider(keyCodeKLeft, keyCodeKRight, _direction);
+                break;
+            case DamageType.KeyCodeL:
+                _keyCodeL = true;
+                OpenCollider(keyCodeLLeft, keyCodeLRight, _direction);
+                break;
+            case DamageType.KeyCodeI:
+                _keyCodeI = true;
+                OpenCollider(keyCodeILeft, keyCodeIRight, _direction);
+                break;
         }
     }
 
     private void StopAttack()
     {
         _keyCodeJ = false;
-        keyCodeJLeft.SetActive(false);
-        keyCodeJRight.SetActive(false);
+        _keyCodeK = false;
+        _keyCodeL = false;
+        _keyCodeI = false;
+        CloseCollider(keyCodeJLeft, keyCodeJRight, Direction.Left);
+        CloseCollider(keyCodeJLeft, keyCodeJRight, Direction.Right);
+        CloseCollider(keyCodeKLeft, keyCodeKRight, Direction.Left);
+        CloseCollider(keyCodeKLeft, keyCodeKRight, Direction.Right);
+        CloseCollider(keyCodeLLeft, keyCodeLRight, Direction.Left);
+        CloseCollider(keyCodeLLeft, keyCodeLRight, Direction.Right);
+        CloseCollider(keyCodeILeft, keyCodeIRight, Direction.Left);
+        CloseCollider(keyCodeILeft, keyCodeIRight, Direction.Right);
     }
 
     private void EndHurt()
     {
         _hurt = false;
+    }
+
+    private void IsGameOver()
+    {
+        var blood = _player1 ? Game.Player1Blood : Game.Player2Blood;
+        if (blood > 0) return;
+        _state = State.Dead;
+        _animator.SetInteger("state", (int)_state);
+        Game.IsGameOver = true;
     }
 }

@@ -117,15 +117,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flame_jet_4
+      name: Flame_jet_10
       rect:
         serializedVersion: 2
         x: 1292
         y: 0
         width: 115
         height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.17, y: 0.43}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,15 +138,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet_5
+      name: Flame_jet_0
       rect:
         serializedVersion: 2
         x: 24
         y: 0
         width: 38
         height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,15 +159,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet_6
+      name: Flame_jet_1
       rect:
         serializedVersion: 2
         x: 156
         y: 0
         width: 25
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.56, y: 0.515}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -180,15 +180,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet_7
+      name: Flame_jet_2
       rect:
         serializedVersion: 2
         x: 275
         y: 0
         width: 46
         height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.38, y: 0.525}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,15 +201,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet_8
+      name: Flame_jet_3
       rect:
         serializedVersion: 2
         x: 396
         y: 0
         width: 74
         height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.29, y: 0.57}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -222,15 +222,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet_9
+      name: Flame_jet_4
       rect:
         serializedVersion: 2
         x: 524
         y: 0
         width: 96
         height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.22, y: 0.495}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -243,15 +243,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet_10
+      name: Flame_jet_5
       rect:
         serializedVersion: 2
         x: 652
         y: 0
         width: 114
         height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.18, y: 0.49}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -264,15 +264,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet_11
+      name: Flame_jet_6
       rect:
         serializedVersion: 2
         x: 780
         y: 0
         width: 115
         height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.18, y: 0.465}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -285,15 +285,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet_12
+      name: Flame_jet_7
       rect:
         serializedVersion: 2
         x: 908
         y: 0
         width: 115
         height: 79
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.18, y: 0.415}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -306,15 +306,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet_13
+      name: Flame_jet_8
       rect:
         serializedVersion: 2
         x: 1036
         y: 0
         width: 115
         height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.18, y: 0.405}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -327,15 +327,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet_14
+      name: Flame_jet_9
       rect:
         serializedVersion: 2
         x: 1164
         y: 0
         width: 115
         height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.18, y: 0.43}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -348,15 +348,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet_15
+      name: Flame_jet_11
       rect:
         serializedVersion: 2
-        x: 1420
+        x: 1419
         y: 0
         width: 111
         height: 61
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.2, y: 0.54}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -369,15 +369,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet_17
+      name: Flame_jet_12
       rect:
         serializedVersion: 2
         x: 1548
         y: 0
         width: 109
         height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.2, y: 0.56}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -390,15 +390,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flame_jet_20
+      name: Flame_jet_13
       rect:
         serializedVersion: 2
         x: 1676
         y: 0
         width: 105
         height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -421,27 +421,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Flame_jet_12: 1795417859
-      Flame_jet_14: 885137815
-      Flame_jet_11: 2047017938
-      Flame_jet_2: 1168166921
-      Flame_jet_13: -1188384318
-      Flame_jet_1: -406493867
-      Flame_jet_20: 1057184481
-      Flame_jet_17: -526955715
-      Flame_jet_6: -989600653
-      Flame_jet_9: -1454274747
-      Flame_jet_4: 26649062
-      Flame_jet_10: 1979577637
-      Flame_jet_7: 1575670030
+      Flame_jet_12: -526955715
+      Flame_jet_11: 460987213
+      Flame_jet_2: 1575670030
+      Flame_jet_13: 1057184481
+      Flame_jet_1: -989600653
+      Flame_jet_6: 2047017938
+      Flame_jet_9: 885137815
+      Flame_jet_10: 26649062
+      Flame_jet_4: -1454274747
+      Flame_jet_7: 1795417859
       Flame_jet_16: -52142531
-      Flame_jet_8: 1763609224
-      Flame_jet_3: -916742674
-      Flame_jet_15: 460987213
+      Flame_jet_8: -1188384318
+      Flame_jet_3: 1763609224
       Flame_jet_19: 1917379757
       Flame_jet_18: -1389698781
-      Flame_jet_0: 854787973
-      Flame_jet_5: 1310468436
+      Flame_jet_0: 1310468436
+      Flame_jet_5: 1979577637
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
