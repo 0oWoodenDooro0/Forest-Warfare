@@ -389,7 +389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   jumpSpeed: 15
-  knockBack: 10
+  knockBack: 50
   layerMask:
     serializedVersion: 2
     m_Bits: 8

@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     private bool _player1;
     private bool _hurt;
     private bool _attack;
+    private bool _knockBack;
 
     private enum State
     {
@@ -68,6 +69,7 @@ public class Player : MonoBehaviour
             }
             _state = State.Hurt;
             _hurt = true;
+            _knockBack = true;
         }
     }
 
@@ -110,10 +112,15 @@ public class Player : MonoBehaviour
             _dirY = jumpSpeed;
         }
 
-        if (_hurt)
+        if (_hurt && !_knockBack)
         {
-            _dirX = 0;
-            _dirY = 0;
+            return;
+        }
+        if (_knockBack)
+        {
+            _rigidbody2D.AddForce(-(_anotherPlayer.transform.position - transform.position).normalized * knockBack, ForceMode2D.Impulse);
+            _knockBack = false;
+            return;
         }
 
         _rigidbody2D.velocity = new Vector2(_dirX, _dirY);
