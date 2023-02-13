@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FlameJet Fire wizard
+  m_Name: Fire wizard KeyCodeI
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -31,24 +31,22 @@ AnimationClip:
       value: {fileID: -1454274747, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
     - time: 0.71666664
       value: {fileID: 1979577637, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
-    - time: 0.85
+    - time: 0.81666666
       value: {fileID: 2047017938, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
-    - time: 1
+    - time: 0.9166667
       value: {fileID: 1795417859, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
-    - time: 1.15
+    - time: 1.0166667
       value: {fileID: -1188384318, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
-    - time: 1.2833333
+    - time: 1.1166667
       value: {fileID: 885137815, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
-    - time: 1.4333333
+    - time: 1.2166667
       value: {fileID: 26649062, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
-    - time: 1.5666667
+    - time: 1.3166667
       value: {fileID: 460987213, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
-    - time: 1.7166667
+    - time: 1.4166666
       value: {fileID: -526955715, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
-    - time: 1.85
+    - time: 1.5333333
       value: {fileID: 1057184481, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
-    - time: 2
-      value: {fileID: 1310468436, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -82,13 +80,12 @@ AnimationClip:
     - {fileID: 460987213, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
     - {fileID: -526955715, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
     - {fileID: 1057184481, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
-    - {fileID: 1310468436, guid: 0b6a46cf98257da43babdaa8fc7fc004, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.0166667
+    m_StopTime: 1.6833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -113,9 +110,16 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 3
+    intParameter: 4
     messageOptions: 0
-  - time: 1.7166667
+  - time: 1.4166666
+    functionName: CloseAttackCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 4
+    messageOptions: 0
+  - time: 1.6833333
     functionName: StopAttack
     data: 
     objectReferenceParameter: {fileID: 0}

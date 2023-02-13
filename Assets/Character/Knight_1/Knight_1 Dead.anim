@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Heavy Attack Fire wizard
+  m_Name: Knight_1 Dead
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,15 +20,17 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1996746613, guid: 7d67dc90e9dc8ad4993f6204ee952804, type: 3}
-    - time: 0.16666667
-      value: {fileID: 1359633276, guid: 7d67dc90e9dc8ad4993f6204ee952804, type: 3}
-    - time: 0.53333336
-      value: {fileID: -461786927, guid: 7d67dc90e9dc8ad4993f6204ee952804, type: 3}
-    - time: 0.6333333
-      value: {fileID: -2084617170, guid: 7d67dc90e9dc8ad4993f6204ee952804, type: 3}
-    - time: 0.9
-      value: {fileID: -1996746613, guid: 7d67dc90e9dc8ad4993f6204ee952804, type: 3}
+      value: {fileID: -116146671, guid: d32ac777f0c633c4182156e79dac2181, type: 3}
+    - time: 0.21666667
+      value: {fileID: 1484018991, guid: d32ac777f0c633c4182156e79dac2181, type: 3}
+    - time: 0.4
+      value: {fileID: 2056285098, guid: d32ac777f0c633c4182156e79dac2181, type: 3}
+    - time: 0.6
+      value: {fileID: -1249048809, guid: d32ac777f0c633c4182156e79dac2181, type: 3}
+    - time: 0.78333336
+      value: {fileID: -732397839, guid: d32ac777f0c633c4182156e79dac2181, type: 3}
+    - time: 1
+      value: {fileID: 831122338, guid: d32ac777f0c633c4182156e79dac2181, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,17 +50,18 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1996746613, guid: 7d67dc90e9dc8ad4993f6204ee952804, type: 3}
-    - {fileID: 1359633276, guid: 7d67dc90e9dc8ad4993f6204ee952804, type: 3}
-    - {fileID: -461786927, guid: 7d67dc90e9dc8ad4993f6204ee952804, type: 3}
-    - {fileID: -2084617170, guid: 7d67dc90e9dc8ad4993f6204ee952804, type: 3}
-    - {fileID: -1996746613, guid: 7d67dc90e9dc8ad4993f6204ee952804, type: 3}
+    - {fileID: -116146671, guid: d32ac777f0c633c4182156e79dac2181, type: 3}
+    - {fileID: 1484018991, guid: d32ac777f0c633c4182156e79dac2181, type: 3}
+    - {fileID: 2056285098, guid: d32ac777f0c633c4182156e79dac2181, type: 3}
+    - {fileID: -1249048809, guid: d32ac777f0c633c4182156e79dac2181, type: 3}
+    - {fileID: -732397839, guid: d32ac777f0c633c4182156e79dac2181, type: 3}
+    - {fileID: 831122338, guid: d32ac777f0c633c4182156e79dac2181, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.9166666
+    m_StopTime: 1.0166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -77,18 +80,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.6333333
-    functionName: StartAttack
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 1
-    messageOptions: 0
-  - time: 0.9
-    functionName: StopAttack
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

@@ -1,15 +1,23 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StartClick : MonoBehaviour
 {
-    private Button _button;
+    public Button button;
 
     private void Start()
     {
-        _button = gameObject.GetComponent<Button>();
-        _button.onClick.AddListener(OnStartClick);
+        button.onClick.AddListener(OnStartClick);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     private void OnStartClick()

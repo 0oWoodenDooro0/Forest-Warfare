@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +6,8 @@ public class Game : MonoBehaviour
     public static bool IsGameOver;
     public static int Player1Blood;
     public static int Player2Blood;
+    public static bool Player1God;
+    public static bool Player2God;
     public Image leftBlood;
     public Image rightBlood;
     public Text time;
@@ -15,6 +16,8 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
+        Player1God = false;
+        Player2God = false;
         IsGameOver = false;
         _time = 121;
         _maxBlood = 100;
@@ -32,9 +35,10 @@ public class Game : MonoBehaviour
                 _time = 0;
                 IsGameOver = true;
             }
-            time.text = ((int)_time).ToString();
 
+            time.text = ((int)_time).ToString();
         }
+
         leftBlood.fillAmount = (float)Player1Blood / _maxBlood;
         rightBlood.fillAmount = (float)Player2Blood / _maxBlood;
     }

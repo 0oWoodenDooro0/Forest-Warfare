@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 549368814}
   - component: {fileID: 549368813}
   - component: {fileID: 549368812}
+  - component: {fileID: 549368815}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -309,6 +310,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &549368815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549368811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48adb07e7b3764a468210035b97df94e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 2040800783}
 --- !u!1 &680072813
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +563,6 @@ GameObject:
   - component: {fileID: 2040800785}
   - component: {fileID: 2040800784}
   - component: {fileID: 2040800783}
-  - component: {fileID: 2040800786}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -575,7 +588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 75}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2040800783
@@ -660,15 +673,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040800781}
   m_CullTransparentMesh: 1
---- !u!114 &2040800786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040800781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48adb07e7b3764a468210035b97df94e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
