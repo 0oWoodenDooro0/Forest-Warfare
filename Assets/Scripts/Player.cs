@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public GameObject keyCodeLRight;
     public GameObject keyCodeILeft;
     public GameObject keyCodeIRight;
+    public GameObject attackObject;
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
     private GameObject _anotherPlayer;
@@ -250,12 +251,10 @@ public class Player : MonoBehaviour
     {
         if (direction == Direction.Left)
         {
-            damageLeftCollider.transform.position = transform.position;
             damageLeftCollider.SetActive(true);
         }
         else
         {
-            damageRightCollider.transform.position = transform.position;
             damageRightCollider.SetActive(true);
         }
     }
@@ -265,12 +264,10 @@ public class Player : MonoBehaviour
         if (direction == Direction.Left)
         {
             damageLeftCollider.SetActive(false);
-            damageLeftCollider.transform.position = new Vector3(100, 100, 0);
         }
         else
         {
             damageRightCollider.SetActive(false);
-            damageRightCollider.transform.position = new Vector3(100, 100, 0);
         }
     }
 
@@ -343,6 +340,19 @@ public class Player : MonoBehaviour
             Game.Player2God = false;
         }
         CloseAttackCollider(damageType);
+    }
+
+    private void SummonObject(DamageType damageType)
+    {
+        if (_attackDirection == Direction.Left)
+        {
+            var rangedWeapon =  Instantiate(attackObject, keyCodeLLeft.transform.position, new Quaternion(0, 0, 0, 0));
+            rangedWeapon.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            Instantiate(attackObject, keyCodeLRight.transform.position, new Quaternion(0, 0, 0, 0));
+        }
     }
 
     private void StartHurt()
